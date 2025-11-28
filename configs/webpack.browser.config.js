@@ -20,7 +20,7 @@ const styleLoader =
 const isDevelopment =
   process.env['NODE_ENV'] === 'development' || process.env['NODE_ENV'] === 'dev';
 
-const port = 8080;
+const port = 18084;
 
 const idePkg = JSON.parse(
   fs
