@@ -11,6 +11,8 @@ import './styles.less';
 import { AILayout } from '@opensumi/ide-ai-native/lib/browser/layout/ai-layout';
 
 renderApp({
+  appName: 'CodeBridge Vibe IDE',
+  workspaceDir: (process.env.NODE_ENV === 'development') ? '' : '/root/opensumi-workspace',
   modules: [
     ...CommonBrowserModules,
     ...AIModules,
