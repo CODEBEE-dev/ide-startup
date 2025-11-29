@@ -22,10 +22,10 @@ export async function renderApp(opts: IClientAppOpts) {
   opts.extensionDir = opts.extensionDir || process.env.EXTENSION_DIR;
   opts.injector = injector;
   opts.wsPath = process.env.WS_PATH || window.location.protocol == 'https:' ? `wss://${hostname}:${serverPort}` : `ws://${hostname}:${serverPort}`;
-  opts.extWorkerHost = opts.extWorkerHost || process.env.EXTENSION_WORKER_HOST || `http://${hostname}:${staticServerPort}/worker-host.js`;
-  opts.staticServicePath = `http://${hostname}:${serverPort}`;
+  opts.extWorkerHost = opts.extWorkerHost || process.env.EXTENSION_WORKER_HOST || `${window.location.protocol}//${hostname}:${staticServerPort}/worker-host.js`;
+  opts.staticServicePath = `${window.location.protocol}//${hostname}:${serverPort}`;
   const anotherHostName = process.env.WEBVIEW_HOST || hostname;
-  opts.webviewEndpoint = `http://${anotherHostName}:${webviewEndpointPort}/webview`;
+  opts.webviewEndpoint = `${window.location.protocol}//${anotherHostName}:${webviewEndpointPort}/webview`;
   const app = new ClientApp(opts);
 
   app.fireOnReload = () => {
